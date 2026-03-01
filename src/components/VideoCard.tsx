@@ -1,6 +1,8 @@
 import { Clock, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface VideoCardProps {
+  id?: string;
   thumbnail: string;
   title: string;
   channel: string;
@@ -10,8 +12,8 @@ interface VideoCardProps {
   index: number;
 }
 
-const VideoCard = ({ thumbnail, title, channel, views, time, duration, index }: VideoCardProps) => {
-  return (
+const VideoCard = ({ id, thumbnail, title, channel, views, time, duration, index }: VideoCardProps) => {
+  const content = (
     <div
       className="group cursor-pointer opacity-0 animate-fade-in"
       style={{ animationDelay: `${index * 80}ms` }}
@@ -24,11 +26,9 @@ const VideoCard = ({ thumbnail, title, channel, views, time, duration, index }: 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        {/* Duration badge */}
         <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-background/80 backdrop-blur-sm text-xs font-medium text-foreground">
           {duration}
         </span>
-        {/* Hover overlay */}
         <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
             <svg className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24">
@@ -63,6 +63,12 @@ const VideoCard = ({ thumbnail, title, channel, views, time, duration, index }: 
       </div>
     </div>
   );
+
+  if (id) {
+    return <Link to={`/watch/${id}`}>{content}</Link>;
+  }
+
+  return content;
 };
 
 export default VideoCard;
