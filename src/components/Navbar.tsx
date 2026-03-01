@@ -1,5 +1,6 @@
 import { Search, Bell, Upload, Menu } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -11,12 +12,12 @@ const Navbar = () => {
         <button className="md:hidden p-2 rounded-lg hover:bg-surface-hover transition-colors">
           <Menu className="w-5 h-5 text-foreground" />
         </button>
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-display font-bold text-sm">V</span>
           </div>
           <span className="font-display font-bold text-lg text-foreground hidden sm:block">Voidstream</span>
-        </div>
+        </Link>
       </div>
 
       {/* Search */}
@@ -42,13 +43,13 @@ const Navbar = () => {
         <button className="p-2 rounded-lg hover:bg-surface-hover transition-colors hidden sm:block">
           <Upload className="w-5 h-5 text-foreground" />
         </button>
-        <button className="p-2 rounded-lg hover:bg-surface-hover transition-colors relative">
+        <Link to="/notifications" className="p-2 rounded-lg hover:bg-surface-hover transition-colors relative">
           <Bell className="w-5 h-5 text-foreground" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full" />
-        </button>
-        <div className="w-8 h-8 rounded-full bg-primary/30 border-2 border-primary flex items-center justify-center ml-1">
+        </Link>
+        <Link to="/profile" className="w-8 h-8 rounded-full bg-primary/30 border-2 border-primary flex items-center justify-center ml-1">
           <span className="text-xs font-semibold text-foreground">JD</span>
-        </div>
+        </Link>
       </div>
 
       {/* Mobile search */}
