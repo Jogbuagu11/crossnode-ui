@@ -43,9 +43,9 @@ const Profile = () => {
             <button className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-surface-hover transition-colors">
               <Share2 className="w-4 h-4" />
             </button>
-            <button className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-surface-hover transition-colors">
+            <Link to="/settings" className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-surface-hover transition-colors">
               <Settings className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 

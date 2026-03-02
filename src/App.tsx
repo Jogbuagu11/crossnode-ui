@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import VideoPlayer from "./pages/VideoPlayer";
 import Profile from "./pages/Profile";
 import Notifications from "./pages/Notifications";
+import Explore from "./pages/Explore";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/watch/:id" element={<VideoPlayer />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
