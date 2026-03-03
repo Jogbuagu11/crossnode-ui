@@ -1,7 +1,8 @@
-import { Search, Bell, Upload, Menu, Home, Compass, Clock, ThumbsUp, Flame, Gamepad2, Music, Film, Newspaper, Bookmark } from "lucide-react";
+import { Search, Bell, Upload, Menu, Home, Compass, Clock, ThumbsUp, Flame, Gamepad2, Music, Film, Newspaper, Bookmark, User, Settings, LogOut } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const mainLinks = [
   { icon: Home, label: "Home", href: "/" },
@@ -118,9 +119,39 @@ const Navbar = () => {
           <Bell className="w-5 h-5 text-foreground" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full" />
         </Link>
-        <Link to="/profile" className="w-8 h-8 rounded-full bg-primary/30 border-2 border-primary flex items-center justify-center ml-1">
-          <span className="text-xs font-semibold text-foreground">JD</span>
-        </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="w-8 h-8 rounded-full bg-primary/30 border-2 border-primary flex items-center justify-center ml-1 focus:outline-none">
+              <span className="text-xs font-semibold text-foreground">JD</span>
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56 bg-background border-border">
+            <div className="px-3 py-3 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center">
+                <span className="text-sm font-bold text-foreground">JD</span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">John Doe</p>
+                <p className="text-xs text-muted-foreground">@johndoe</p>
+              </div>
+            </div>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <Link to="/profile" className="flex items-center gap-2 cursor-pointer">
+                <User className="w-4 h-4" /> Your Channel
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link to="/settings" className="flex items-center gap-2 cursor-pointer">
+                <Settings className="w-4 h-4" /> Settings
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="flex items-center gap-2 cursor-pointer text-destructive focus:text-destructive">
+              <LogOut className="w-4 h-4" /> Sign Out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Mobile search */}
