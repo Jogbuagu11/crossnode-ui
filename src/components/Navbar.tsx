@@ -7,8 +7,8 @@ const mainLinks = [
   { icon: Home, label: "Home", href: "/" },
   { icon: Compass, label: "Explore", href: "/explore" },
   { icon: Flame, label: "Trending", href: "/" },
-  { icon: Bookmark, label: "Library", href: "/" },
-  { icon: Clock, label: "History", href: "/" },
+  { icon: Bookmark, label: "Library", href: "/library" },
+  { icon: Clock, label: "History", href: "/history" },
   { icon: ThumbsUp, label: "Liked", href: "/" },
 ];
 

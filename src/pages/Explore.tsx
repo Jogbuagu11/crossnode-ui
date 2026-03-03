@@ -59,24 +59,24 @@ const Explore = () => {
           </div>
 
           {/* Channel grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
             {filtered.map((channel) => (
               <div
                 key={channel.id}
-                className="bg-card rounded-xl border border-border p-5 flex flex-col items-center text-center hover:border-primary/30 transition-colors"
+                className="bg-card rounded-xl border border-border p-3 md:p-5 flex flex-col items-center text-center hover:border-primary/30 transition-colors"
               >
                 <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-display font-bold text-primary-foreground mb-3"
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-lg md:text-xl font-display font-bold text-primary-foreground mb-2 md:mb-3"
                   style={{ backgroundColor: channel.color }}
                 >
                   {channel.name.charAt(0)}
                 </div>
-                <h3 className="font-display font-semibold text-foreground text-sm">{channel.name}</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">{channel.handle}</p>
-                <p className="text-xs text-muted-foreground mt-1">{channel.subs} subscribers</p>
+                <h3 className="font-display font-semibold text-foreground text-xs md:text-sm truncate w-full">{channel.name}</h3>
+                <p className="text-[10px] md:text-xs text-muted-foreground mt-0.5">{channel.handle}</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground mt-1">{channel.subs} subs</p>
                 <button
                   onClick={() => toggleSubscribe(channel.id)}
-                  className={`mt-4 px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+                  className={`mt-3 md:mt-4 px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold transition-colors ${
                     subscribed.has(channel.id)
                       ? "bg-secondary text-secondary-foreground hover:bg-surface-hover"
                       : "bg-primary text-primary-foreground hover:opacity-90"

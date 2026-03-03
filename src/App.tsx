@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import Notifications from "./pages/Notifications";
 import Explore from "./pages/Explore";
 import Settings from "./pages/Settings";
+import Library from "./pages/Library";
+import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/history" element={<History />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
