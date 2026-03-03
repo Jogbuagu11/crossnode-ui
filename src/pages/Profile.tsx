@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Settings, Share2, MapPin, Calendar, Users, Eye, Video } from "lucide-react";
+import { Settings, Share2, MapPin, Calendar, Users, Eye, Video, Edit, Upload } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import VideoCard from "@/components/VideoCard";
@@ -18,16 +18,24 @@ const Profile = () => {
       <Navbar />
 
       {/* Banner */}
-      <div className="relative h-48 md:h-64 overflow-hidden">
+      <div className="relative h-48 md:h-64 overflow-hidden group">
         <img src={thumb1} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <button className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-background/60 backdrop-blur-sm text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5">
+          <Edit className="w-3.5 h-3.5" /> Change Banner
+        </button>
       </div>
 
       {/* Profile info */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 -mt-16 relative z-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4 mb-6">
-          <div className="w-28 h-28 rounded-full bg-primary/30 border-4 border-background flex items-center justify-center shadow-[var(--shadow-glow)]">
-            <span className="text-3xl font-display font-bold text-foreground">JD</span>
+          <div className="relative group">
+            <div className="w-28 h-28 rounded-full bg-primary/30 border-4 border-background flex items-center justify-center shadow-[var(--shadow-glow)]">
+              <span className="text-3xl font-display font-bold text-foreground">JD</span>
+            </div>
+            <button className="absolute inset-0 rounded-full bg-background/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <Edit className="w-5 h-5 text-foreground" />
+            </button>
           </div>
           <div className="flex-1">
             <h1 className="text-2xl md:text-3xl font-display font-bold text-foreground">John Doe</h1>
@@ -37,8 +45,8 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
-              Subscribe
+            <button className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5">
+              <Upload className="w-4 h-4" /> Upload Video
             </button>
             <button className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-surface-hover transition-colors">
               <Share2 className="w-4 h-4" />
